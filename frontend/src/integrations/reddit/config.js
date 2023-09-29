@@ -7,6 +7,8 @@ export default {
   borderColor: '#ffd8ca',
   description:
     'Connect Reddit to sync posts and comments from selected subreddits.',
+  onboardDescription:
+    'Sync posts and comments from selected subreddits.',
   image: '/images/integrations/reddit.svg',
   connectComponent: RedditConnect,
   url: ({ username }) => (username ? `https://reddit.com/user/${username}` : null),
@@ -21,5 +23,8 @@ export default {
       copy: 'reply',
       number: conversation.activityCount - 1,
     }),
+  },
+  organization: {
+    handle: (identity) => (identity.url ? identity.url.split('/').at(-1) : identity.name),
   },
 };

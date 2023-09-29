@@ -9,6 +9,8 @@ export default {
   borderColor: '#FFFFFF',
   description:
     'Connect Git to sync commit activities from your repos.',
+  onboardDescription:
+    'Sync commit activities from your repos.',
   image:
     '/images/integrations/git.png',
   connectComponent: GitConnect,
@@ -30,5 +32,8 @@ export default {
       insertions: attributes.insertions,
       deletions: attributes.deletions,
     }),
+  },
+  organization: {
+    handle: (identity) => (identity.url ? identity.url.split('/').at(-1) : identity.name),
   },
 };

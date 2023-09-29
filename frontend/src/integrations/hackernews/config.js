@@ -7,6 +7,7 @@ export default {
   borderColor: '#ffdecf',
   description:
     'Connect Hacker News to get posts as well as their comments mentioning your community.',
+  onboardDescription: 'Get posts as well as their comments mentioning your community.',
   image: '/images/integrations/hackernews.svg',
   connectComponent: HackerNewsConnect,
   url: ({ username }) => (username ? `https://news.ycombinator.com/user?id=${username}` : null),
@@ -21,5 +22,8 @@ export default {
       copy: 'reply',
       number: conversation.activityCount - 1,
     }),
+  },
+  organization: {
+    handle: (identity) => (identity.url ? identity.url.split('/').at(-1) : identity.name),
   },
 };
