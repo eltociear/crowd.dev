@@ -1,4 +1,5 @@
 import { timeout } from '@crowd/common'
+import cronGenerator from 'cron-time-generator'
 import TenantService from '../../services/tenantService'
 import { CrowdJob } from '../../types/jobTypes'
 import { sendNodeWorkerMessage } from '../../serverless/utils/nodeWorkerSQS'
@@ -8,7 +9,7 @@ import { NodeWorkerMessageBase } from '../../types/mq/nodeWorkerMessageBase'
 const job: CrowdJob = {
   name: 'Merge suggestions',
   // every hour
-  cronTime: '0 * * * *',
+  cronTime: cronGenerator.every(5).minutes(),
   onTrigger: async () => {
     const tenants = await TenantService._findAndCountAllForEveryUser({})
     for (const tenant of tenants.rows) {
