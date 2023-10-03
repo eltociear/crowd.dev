@@ -9,9 +9,6 @@ export default {
   borderColor: '#d2ebfc',
   description:
     'Connect Twitter to sync profile information, followers, and relevant tweets.',
-  onboard: {
-    description: 'Sync profile information, followers, and relevant tweets.',
-  },
   image:
     'https://cdn-icons-png.flaticon.com/512/733/733579.png',
   connectComponent: config.isTwitterIntegrationEnabled ? TwitterConnect2 : TwitterConnect,
