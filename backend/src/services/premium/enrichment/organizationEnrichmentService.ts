@@ -169,7 +169,7 @@ export default class OrganizationEnrichmentService extends LoggerBase {
         const existingOrg = await OrganizationRepository.findByDomain(org.website, this.options)
         const orgService = new OrganizationService(this.options)
 
-        if (existingOrg) {
+        if (existingOrg && (existingOrg.id !== org.id)) {
           await orgService.merge(existingOrg.id, org.id)
           // remove the merged org from the list
           orgs = orgs.filter((o) => o.id !== org.id)
