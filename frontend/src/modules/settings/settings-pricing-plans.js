@@ -4,6 +4,12 @@ import config from '@/config';
 const crowdHostedPlans = Plans.values;
 const communityPlans = Plans.communityValues;
 
+/**
+ * ctaLabel: Copy shown in the CTA dependent on the active plan.
+ * Key of ctaLabel represents the active plan, value represents the copy that should appear on the corresponding column plan
+ * ctaAction: Action triggered by CTA click dependent on the active plan.
+ * Key of ctaAction represents the acttive plan, value represents the set of actions trigerred when the corresponding column plan button is clicked.
+ */
 export const plans = {
   crowdHosted: [
     {
@@ -106,10 +112,10 @@ export const plans = {
         'Dedicated community expert',
       ],
       ctaLabel: {
-        [Plans.values.eagleEye]: 'Book a call',
-        [Plans.values.essential]: 'Book a call',
-        [Plans.values.growth]: 'Book a call',
-        [Plans.values.scale]: 'Book a call',
+        [Plans.values.eagleEye]: 'Get a quote',
+        [Plans.values.essential]: 'Get a quote',
+        [Plans.values.growth]: 'Get a quote',
+        [Plans.values.scale]: 'Get a quote',
       },
       ctaAction: {
         [Plans.values.eagleEye]: () => {
